@@ -1,10 +1,9 @@
 function FootTemplate() {
     return (
-        <div className='authFooter'>
-            <div className="authPrivacyPolicy">
-                <a href="www.google.com" target="_blank">Privacy Policy</a>
-            </div>
-        </div>
+        <footer className="content-footer">
+            <hr className="divider"/>
+            <a href="#" className="privacy-link">Privacy Policy</a>
+        </footer>
     )            
 };
 

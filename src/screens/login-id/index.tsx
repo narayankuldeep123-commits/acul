@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import LoginId from '@auth0/auth0-acul-js/login-id';
-import HeadTemplate from "@/shared/HeadTemplate";
-import FootTemplate from "@/shared/FootTemplate";
+//import HeadTemplate from "@/shared/HeadTemplate";
 import StaticImgTemplate from "@/shared/StaticImgTemplate";
+import LoadingSpinner from "@/shared/LoadingSpinner";
+import FootTemplate from "@/shared/FootTemplate";
 
 const LoginIdScreen: React.FC = () => {
 
     const [loginIdManager] = useState(() => new LoginId());
-    const [identifier, setIdentifier] = useState('');
+    const [email, setEmail] = useState<string>('');
     const [error, setError ] = useState<string | null>(null);
     const [trans, setTrans] = useState<any>(null);
 
@@ -33,7 +34,7 @@ const LoginIdScreen: React.FC = () => {
         setError(null);
 
         try {
-            await loginIdManager.login({ username: identifier });
+            await loginIdManager.login({ username: email });
         }
         catch (err) {
             const errors = loginIdManager.getErrors();
@@ -42,48 +43,37 @@ const LoginIdScreen: React.FC = () => {
     };
 
     if(!trans)
-        return <div>Loading...</div>;
+        return <div><LoadingSpinner /></div>;
 
     return (
-        <>
-        <StaticImgTemplate />
-        <HeadTemplate />
-        <div className="loginFormDiv">
-            <h2 className="signinHeading">{trans.header.description}</h2>
-            <form onSubmit={handleSubmit}>
-                <div className="formDiv">
-                    <label className="identifierLabel" htmlFor="identifier">{trans.form.fields.identifier.label}</label>
-                    <input 
-                        className="identifierInput"
-                        id="identifier" 
-                        type="text" 
-                        value={identifier} 
-                        onChange={(e) => setIdentifier(e.target.value)} 
-                        placeholder={trans.form.fields.identifier.placeholder} 
-                        required 
-                    />
+        <div className="page-wrapper">
+            <main className="main-content">
+                <div className="login-container">
+                    <div className="login-card">
+                        <h1 className="fluid-title">Welcome Back</h1>
+                        <p className="fluid-subtitle">Enter your email to access your account</p>
+                        <form onSubmit={handleSubmit} className="login-form">
+                            <div className="input-group">
+                                <label htmlFor="email">Username or Email Address</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    placeholder="Username or email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            {error && <p style={{color:'red'}}>{error}</p>}
+                            <button type="submit" className="login-button">Next</button>
+                        </form>
+                    </div>
                 </div>
-
-                {error && <p style={{color:'red'}}>{error}</p>}
-
-                <button className="btnSubmit" type="submit">
-                    {trans.form.button}
-                </button>
-            </form>
-            
-            {loginIdManager.transaction?.alternateConnections?.map((conn) =>
-            (
-                <button key={conn.name} onClick={() => loginIdManager.federatedLogin({ connection: conn.name})}
-                style={{marginTop: '10px', display: 'block', width: '100%'}}
-                >
-                    {trans.social.continueWith} {conn.name}
-                </button>
-            )
-            )}
+                <FootTemplate />      
+            </main>
+            <StaticImgTemplate />
         </div>
-        <FootTemplate />
-        </>
     );
-;}
+}
 
 export default LoginIdScreen;
