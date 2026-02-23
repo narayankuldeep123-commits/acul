@@ -1,0 +1,34 @@
+{
+  "page": {
+    "title": "Login Password"
+  },
+  "header": {
+    "logoAlt": "Application Logo",
+    "title": "Password Page",
+    "description": "Enter your password to continue"
+  },
+  "form": {
+    "fields": {
+      "username": {
+        "label": "Username or Email Address",
+        "edit": "Edit"
+      },
+      "password": {
+        "label": "Password",
+        "required": "Password is required",
+        "minLength": "Password must be at least {minLength} characters",
+        "placeholder": "Enter your password"
+      },
+      "captcha": {
+        "label": "CAPTCHA",
+        "required": "Please complete the CAPTCHA"
+      }
+    },
+    "button": "Sign In",
+    "forgotPassword": "Forgot Password?"
+  },
+  "footer": {
+    "text": "Don't have an account?",
+    "linkText": "Sign up"
+  }
+}

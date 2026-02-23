@@ -1,0 +1,34 @@
+{
+  "page": {
+    "title": "로그인 비밀번호"
+  },
+  "header": {
+    "logoAlt": "Application Logo",
+    "title": "Welcome",
+    "description": "계속하려면 비밀번호를 입력하세요"
+  },
+  "form": {
+    "fields": {
+      "username": {
+        "label": "Username or Email Address",
+        "edit": "Edit"
+      },
+      "password": {
+        "label": "비밀번호",
+        "required": "Password is required",
+        "minLength": "Password must be at least {minLength} characters",
+        "placeholder": "비밀번호를 입력하세요"
+      },
+      "captcha": {
+        "label": "CAPTCHA",
+        "required": "Please complete the CAPTCHA"
+      }
+    },
+    "button": "로그인",
+    "forgotPassword": "Forgot Password?"
+  },
+  "footer": {
+    "text": "Don't have an account?",
+    "linkText": "Sign up"
+  }
+}

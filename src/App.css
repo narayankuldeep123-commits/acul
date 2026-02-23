@@ -1,0 +1,97 @@
+#root {
+  padding: 15px;
+}
+
+.authStaticImage {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0;
+  left: unset;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -5;
+  width: 30%;
+}
+
+.authContainer {
+  width: 70%;
+  margin-left: 30%;
+}
+
+.authHeader{
+  width: 497px;
+  height: 150px;
+  text-align: center;
+}
+
+.authLogo {
+  width: 150px;
+  height: 100px;
+}
+
+.authBeaconContainer {
+  width: 497px;
+  height: 0px;
+  border: 1px solid #C1BBB3;
+}
+
+.loginFormDiv {
+  width: 497px;
+  margin-left: 30%;
+}
+
+.signinHeading {
+  text-align: center;
+}
+
+.formDiv {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.identifierLabel {
+  text-align: center;
+}
+
+.identifierInput {
+  width: 96%;
+  text-align: center;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.btnSubmit {
+  width: 100%;
+  padding: 0.75rem;
+  cursor: pointer;
+}
+
+.authFooter {
+  width: 497px;
+  height: 50px;
+  margin-left: 30%;
+  margin-top: 30px;
+}
+
+.authPrivacyPolicy {
+  text-align: center;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .authStaticImage {
+    display: none;
+    background-image: none;
+  }
+}
+
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

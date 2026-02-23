@@ -1,0 +1,37 @@
+{
+  "page": {
+    "title": "Login",
+    "separator": "OR"
+  },
+  "header": {
+    "logoAlt": "Application Logo",
+    "title": "Sign In",
+    "description": "Log in to dev-tenant"
+  },
+  "form": {
+    "fields": {
+      "identifier": {
+        "label": "Username/Email",
+        "required": "This field is required",
+        "placeholder": "Enter your username or email"
+      },
+      "captcha": {
+        "label": "CAPTCHA",
+        "required": "Please complete the CAPTCHA"
+      }
+    },
+    "button": "Continue",
+    "forgotPassword": "Forgot Password?",
+    "passkeyButton": "Continue with a passkey",
+    "countryPicker": {
+      "placeholder": "Select Country"
+    }
+  },
+  "footer": {
+    "text": "Don't have an account?",
+    "linkText": "Sign up"
+  },
+  "social": {
+    "continueWith": "Continue with"
+  }
+}
