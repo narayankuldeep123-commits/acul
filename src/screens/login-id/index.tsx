@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import LoginId from '@auth0/auth0-acul-js/login-id';
-//import HeadTemplate from "@/shared/HeadTemplate";
 import StaticImgTemplate from "@/shared/StaticImgTemplate";
 import LoadingSpinner from "@/shared/LoadingSpinner";
 import FootTemplate from "@/shared/FootTemplate";
+import HeadTemplate from "@/shared/HeadTemplate";
 
 const LoginIdScreen: React.FC = () => {
 
@@ -48,17 +48,16 @@ const LoginIdScreen: React.FC = () => {
     return (
         <div className="page-wrapper">
             <main className="main-content">
+                <HeadTemplate />
                 <div className="login-container">
                     <div className="login-card">
-                        <h1 className="fluid-title">Welcome Back</h1>
-                        <p className="fluid-subtitle">Enter your email to access your account</p>
+                        <p className="powered-with">Powered with <span className="identity-bold">J&J Identity</span> - your one secure and stable access across all J&J applications.</p>
+                        <h3 className="signin-app">Sign in to {loginIdManager.client.name}</h3>
                         <form onSubmit={handleSubmit} className="login-form">
                             <div className="input-group">
-                                <label htmlFor="email">Username or Email Address</label>
+                                <label htmlFor="email">Enter your username</label>
                                 <input
                                     type="email"
-                                    id="email"
-                                    placeholder="Username or email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
@@ -66,6 +65,10 @@ const LoginIdScreen: React.FC = () => {
                             </div>
                             {error && <p style={{color:'red'}}>{error}</p>}
                             <button type="submit" className="login-button">Next</button>
+                            <div className="form-links">
+                                <p>Need help signing in? <a className="email-us" href="#">Email Us</a></p>
+                                <p>Don't have an account? <a className="sign-up" href="#">Sign up</a></p>
+                            </div>
                         </form>
                     </div>
                 </div>
