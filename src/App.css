@@ -28,7 +28,8 @@ html, body {
     margin-right: auto;
     margin-top: 75px;
     margin-bottom: 20px;
-    font-family: sans-serif;
+    font-family: Arial;
+    overflow-y: hidden;
   }
 
   .page-header {
@@ -102,6 +103,40 @@ html, body {
     border-radius: 6px;
     font-size: 1rem;
     outline: none;
+  }
+
+  .email-input.input-error {
+    border: 1px solid #d93025 !important;
+    background-color: #fff;
+  }
+
+  .error-box {
+    display: flex;
+    align-items: flex-start;
+    background-color: #F5753533;
+    border-radius: 4px;
+    padding: 4px;
+    gap: 4px;
+    max-width: 392px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    color: #000000;
+    font-size: 12px;
+    line-height: 140%;
+    letter-spacing: 0px;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  .error-icon {
+    color: #d93025;
+    margin-right: 8px;
+    font-family: sans-serif;
+    font-weight: bold;
+  }
+
+  .error-box p {
+    margin: 0;
   }
 
   .input-group input:focus {

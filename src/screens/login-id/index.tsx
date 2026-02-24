@@ -10,6 +10,7 @@ const LoginIdScreen: React.FC = () => {
     const [loginIdManager] = useState(() => new LoginId());
     const [email, setEmail] = useState<string>('');
     const [error, setError ] = useState<string | null>(null);
+    const [blankerror, setBlankError] = useState<string | null>(null);
     const [trans, setTrans] = useState<any>(null);
 
     useEffect(() => {
@@ -32,7 +33,16 @@ const LoginIdScreen: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError(null);
+        setBlankError(null);
 
+        if(email.trim() === '')
+        {
+            console.log("inside if blank error");
+            setBlankError("Need help finding your username? Check your welcome email for guidance.");
+            console.log("Blank Error :: ", blankerror);
+            return;
+        }
+        
         try {
             await loginIdManager.login({ username: email });
         }
@@ -58,11 +68,17 @@ const LoginIdScreen: React.FC = () => {
                                 <label htmlFor="email">Enter your username</label>
                                 <input
                                     type="email"
+                                    className={`email-input ${(blankerror || error) ? 'input-error' : ''}`}
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    required
                                 />
                             </div>
+                            {blankerror && (
+                                <div className="error-box">
+                                    <img className="error-icon"/>
+                                    <p>{blankerror}</p>
+                                </div>
+                            )}
                             {error && <p style={{color:'red'}}>{error}</p>}
                             <button type="submit" className="login-button">Next</button>
                             <div className="form-links">
