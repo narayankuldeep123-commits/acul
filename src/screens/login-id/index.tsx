@@ -4,6 +4,7 @@ import StaticImgTemplate from "@/shared/StaticImgTemplate";
 import LoadingSpinner from "@/shared/LoadingSpinner";
 import FootTemplate from "@/shared/FootTemplate";
 import HeadTemplate from "@/shared/HeadTemplate";
+import ErrorIcon from "../../assets/Vector.svg"
 
 const LoginIdScreen: React.FC = () => {
 
@@ -38,8 +39,6 @@ const LoginIdScreen: React.FC = () => {
         if(email.trim() === '')
         {
             console.log("inside if blank error");
-            setBlankError("Need help finding your username? Check your welcome email for guidance.");
-            console.log("Blank Error :: ", blankerror);
             return;
         }
         
@@ -61,11 +60,11 @@ const LoginIdScreen: React.FC = () => {
                 <HeadTemplate />
                 <div className="login-container">
                     <div className="login-card">
-                        <p className="powered-with">Powered with <span className="identity-bold">J&J Identity</span> - your one secure and stable access across all J&J applications.</p>
-                        <h3 className="signin-app">Sign in to {loginIdManager.client.name}</h3>
+                        <p className="powered-with">{trans.header.titlepart1}<span className="identity-bold">{trans.header.titlepart2}</span>{trans.header.titlepart3}</p>
+                        <h3 className="signin-app">{trans.header.description} {loginIdManager.client.name}</h3>
                         <form onSubmit={handleSubmit} className="login-form">
                             <div className="input-group">
-                                <label htmlFor="email">Enter your username</label>
+                                <label htmlFor="email">{trans.form.fields.identifier.label}</label>
                                 <input
                                     type="email"
                                     className={`email-input ${(blankerror || error) ? 'input-error' : ''}`}
@@ -75,20 +74,20 @@ const LoginIdScreen: React.FC = () => {
                             </div>
                             {blankerror && (
                                 <div className="error-box">
-                                    <img className="error-icon"/>
-                                    <p>{blankerror}</p>
+                                    <img src={ErrorIcon} className="error-icon"/>
+                                    <p>{trans.form.fields.identifiererror.blankerrormsg}</p>
                                 </div>
                             )}
                             {error && <p style={{color:'red'}}>{error}</p>}
-                            <button type="submit" className="login-button">Next</button>
+                            <button type="submit" className="login-button">{trans.form.button}</button>
                             <div className="form-links">
-                                <p>Need help signing in? <a className="email-us" href="#">Email Us</a></p>
-                                <p>Don't have an account? <a className="sign-up" href="#">Sign up</a></p>
+                                <p>{trans.form.needhelpsignin}<a className="email-us" href="#">{trans.form.emailus}</a></p>
+                                <p>{trans.form.donthaveanaccount}<a className="sign-up" href="#">{trans.form.signup}</a></p>
                             </div>
                         </form>
                     </div>
                 </div>
-                <FootTemplate />      
+                <FootTemplate privacypolicy={trans.footer.privacypolicy} />      
             </main>
             <StaticImgTemplate />
         </div>

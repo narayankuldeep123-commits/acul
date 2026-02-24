@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import LoginPassword from "@auth0/auth0-acul-js/login-password";
 import HeadTemplate from "@/shared/HeadTemplate";
-import FootTemplate from "@/shared/FootTemplate";
+//import FootTemplate from "@/shared/FootTemplate";
 import StaticImgTemplate from "@/shared/StaticImgTemplate";
 
 
@@ -73,7 +73,6 @@ const LoginPasswordScreen: React.FC = () => {
                     Clicked Backed
             </button>
         </div>
-        <FootTemplate />
         </>
     );
 };
